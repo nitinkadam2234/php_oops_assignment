@@ -10,8 +10,8 @@ class Robot implements Apartment, Battery {
   private $cleaningTime;
   public $chargingPercentage = 0;
   public $cleanedArea = 0;
-  public const HARD_FLOOR_CLEAN_TIME = 2;
-  public const CARPET_FLOOR_CLEAN_TIME = 1;
+  public const HARD_FLOOR_CLEAN_TIME = 1;
+  public const CARPET_FLOOR_CLEAN_TIME = 2;
   public const FULL_CHARGE_PERCENTAGE = 100;
 
   public function __construct($floor, $totalArea) {
