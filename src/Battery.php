@@ -1,5 +1,5 @@
 <?php
 
 interface Battery {
-	public function charge();
+  public function charge();
 }
