@@ -6,19 +6,27 @@ class RobotTest extends TestCase {
 
   private $robot;
 
-  protected function setUp(): void {
-    $arg = ['floor' => 'hard', 'area' => 50];
+  public function testCleanHardFloor() {
+    $arg = ['floor' => 'hard', 'area' => 70];
+
     $this->robot = new Robot($arg['floor'], $arg['area']);
+
+    $floorObj = new Floor($this->robot->totalArea);
+
+    $this->robot->work($floorObj);
+
+    $this->assertEquals(70, $this->robot->cleanedArea);
   }
 
-  public function testCharge() {
-    $this->robot->charge();
-    $this->assertEquals(100, $this->robot->chargingPercentage);
-  }
+  public function testCleanCarpetFloor() {
+    $arg = ['floor' => 'carpet', 'area' => 60];
 
-  public function testClean() {
-    $this->robot->clean();
+    $this->robot = new Robot($arg['floor'], $arg['area']);
 
-    $this->assertEquals(50, $this->robot->cleanedArea);
+    $floorObj = new Floor($this->robot->totalArea);
+
+    $this->robot->work($floorObj);
+
+    $this->assertEquals(60, $this->robot->cleanedArea);
   }
 }

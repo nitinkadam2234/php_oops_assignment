@@ -1,63 +1,53 @@
 <?php
 
-require_once('Apartment.php');
+require_once('Workable.php');
 require_once('Battery.php');
+require_once('Floor.php');
 
-class Robot implements Apartment, Battery {
+// Robot has-a battery
+// Robot can work
+
+class Robot implements Workable {
 
   public $floor;
-  private $totalArea;
-  private $cleaningTime;
-  public $chargingPercentage = 0;
-  public $cleanedArea = 0;
-  public const HARD_FLOOR_CLEAN_TIME = 1;
-  public const CARPET_FLOOR_CLEAN_TIME = 2;
-  public const FULL_CHARGE_PERCENTAGE = 100;
+  public $totalArea;
+  public $cleaningAreaTime;
 
   public function __construct($floor, $totalArea) {
-    $this->floor = $floor;
+    $this->floor = $floor ? strtolower($floor) : '';
     $this->totalArea = $totalArea;
+    $this->battery = new Battery();
   }
 
-  public function clean() {
+  public function start() {
     if($this->floor == 'hard') {
-      $this->cleaningTime = ROBOT::HARD_FLOOR_CLEAN_TIME;
-      $this->hardFloor();
+      $this->cleaningAreaTime = Floor::HARD_FLOOR_CLEAN_TIME;
+      $floorObj = new Floor($this->totalArea);
+      $this->work($floorObj);
     } elseif($this->floor == 'carpet') {
-      $this->cleaningTime = ROBOT::CARPET_FLOOR_CLEAN_TIME;
-      $this->carpetFloor();
+      $this->cleaningAreaTime = Floor::CARPET_FLOOR_CLEAN_TIME;
+      $floorObj = new Floor($this->totalArea);
+      $this->work($floorObj);
     } else {
       echo 'Please pass valid floor(hard/carpet).' . PHP_EOL;
     }
   }
 
-  public function hardFloor() {
-    $this->cleaningProcess();
-  }
+  public function work($floorObj) {
+    $perAreaDischargePercentage = $this->cleaningAreaTime * (Battery::FULL_CHARGE_PERCENTAGE / Battery::TIME_TO_DISCHARGE);
 
-  public function carpetFloor() {
-    $this->cleaningProcess();
-  }
-
-  public function cleaningProcess() {
-    while ($this->cleanedArea < $this->totalArea) {
-
-      if($this->chargingPercentage == 0) {
-        $this->charge();
+    while ($floorObj->cleanedArea < $floorObj->totalArea) {
+      if($this->battery->chargingPercentage > 0) {
+        $this->battery->chargingPercentage = $this->battery->chargingPercentage - $perAreaDischargePercentage;
+  
+        $this->cleanedArea = $floorObj->clean();
+  
+        echo "[Cleaning {$this->floor} floor] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage:". round(abs($this->battery->chargingPercentage), 2) ."%" . PHP_EOL;
+      } else {
+        $this->battery->charge();
       }
-
-      $this->chargingPercentage = $this->chargingPercentage - $this->cleaningTime;
-      $this->cleanedArea += 1;
-
-      echo "[Cleaning {$this->floor} floor] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage: {$this->chargingPercentage}%" . PHP_EOL;
     }
 
     return $this->cleanedArea;
-  }
-
-  public function charge() {
-    echo "[Charging] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage: {$this->chargingPercentage}%" . PHP_EOL ;
-    $this->chargingPercentage = ROBOT::FULL_CHARGE_PERCENTAGE;
-    echo "[Charged] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage: {$this->chargingPercentage}%" . PHP_EOL ;
   }
 }
