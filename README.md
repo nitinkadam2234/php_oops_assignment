@@ -25,7 +25,7 @@ Assumptions
 ## Steps to run
 
 ### Carpet Floor
-$ php src/Index.php --clean --floor=Carpet --area=70
+$ php src/Index.php --action=clean --floor=Carpet --area=70
 
 [Battery Charging] 3.33%
 
@@ -349,7 +349,7 @@ $ php src/Index.php --clean --floor=Carpet --area=70
 
 
 ### Hard Floor
-$ php src/Index.php --clean --floor=Hard --area=60
+$ php src/Index.php --action=clean --floor=Hard --area=60
 
 [Battery Charging] 3.33%
 
@@ -537,8 +537,8 @@ $ ./vendor/bin/phpunit tests
 
 PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
 
-.....
+..........
 
 Time: 24 ms, Memory: 4.00 MB
 
-OK (5 tests, 5 assertions)
+OK (10 tests, 10 assertions)

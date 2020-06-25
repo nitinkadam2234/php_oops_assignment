@@ -1,7 +1,15 @@
 <?php
 
-require_once('Robot.php');
+require 'vendor/autoload.php';
 
-$args = getopt(null, ['floor:', 'area:']);
-$robot = new Robot($args['floor'], $args['area']);
-$robot->start();
+try {
+  $longopts  = array('action::', 'floor::', 'area::');
+  $args = getopt(null, $longopts);
+
+  Validator::validateInputs($args);
+
+  $robot = new Robot($args['floor'], $args['area']);
+  $robot->start();
+} catch(Exception $e) {
+  echo 'Error: '. $e->getMessage() . PHP_EOL;
+}
