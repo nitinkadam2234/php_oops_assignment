@@ -18,14 +18,19 @@ Assumptions
 
 ● The battery charge from 0 to 100% takes 30 seconds.
 
-## Installation
+## Dependencies
 - PHP: 7.2
 - PHPUnit 7.5
 
-## Steps to run
+## Installation Steps
+- Clone the repository
+- Run `$ composer install` command
+- Run the application
 
-### Carpet Floor
-$ php src/Index.php --action=clean --floor=Carpet --area=70
+## Steps to run the application
+
+### Hard Floor
+$ php index.php --action=clean --floor=Hard --area=70
 
 [Battery Charging] 3.33%
 
@@ -33,11 +38,39 @@ $ php src/Index.php --action=clean --floor=Carpet --area=70
 
 [Battery Charging] 100%
 
-[Cleaning carpet floor] Cleaned Area: 1 mt sq, Charging Percentage:96.67%
+[Cleaning hard floor] Cleaned Area: 1 mt sq, Charging Percentage: 98.33%
+
+.....
+
+[Cleaning hard floor] Cleaned Area: 60 mt sq, Charging Percentage: 0%
+
+[Battery Charging] 3.33%
+
+.....
+
+[Battery Charging] 100%
+
+[Cleaning hard floor] Cleaned Area: 61 mt sq, Charging Percentage: 98.33%
+
+.....
+
+[Cleaning hard floor] Cleaned Area: 70 mt sq, Charging Percentage: 83.33%
+
+
+### Carpet Floor
+$ php index.php --action=clean --floor=Carpet --area=60
+
+[Battery Charging] 3.33%
+
+.....
+
+[Battery Charging] 100%
+
+[Cleaning carpet floor] Cleaned Area: 1 mt sq, Charging Percentage: 96.67%
 
 ......
 
-[Cleaning carpet floor] Cleaned Area: 30 mt sq, Charging Percentage:0%
+[Cleaning carpet floor] Cleaned Area: 30 mt sq, Charging Percentage: 0%
 
 [Battery Charging] 3.33%
 
@@ -45,39 +78,11 @@ $ php src/Index.php --action=clean --floor=Carpet --area=70
 
 [Battery Charging] 100%
 
-[Cleaning carpet floor] Cleaned Area: 31 mt sq, Charging Percentage:96.67%
+[Cleaning carpet floor] Cleaned Area: 31 mt sq, Charging Percentage: 96.67%
 
-...
+.....
 
-[Cleaning carpet floor] Cleaned Area: 60 mt sq, Charging Percentage:0%
-
-[Battery Charging] 3.33%
-
-...
-
-[Battery Charging] 100%
-
-[Cleaning carpet floor] Cleaned Area: 61 mt sq, Charging Percentage:96.67%
-
-...
-
-[Cleaning carpet floor] Cleaned Area: 70 mt sq, Charging Percentage:66.67%
-
-
-### Hard Floor
-$ php src/Index.php --action=clean --floor=Hard --area=60
-
-[Battery Charging] 3.33%
-
-...
-
-[Battery Charging] 100%
-
-[Cleaning hard floor] Cleaned Area: 1 mt sq, Charging Percentage:98.33%
-
-...
-
-[Cleaning hard floor] Cleaned Area: 60 mt sq, Charging Percentage:0%
+[Cleaning carpet floor] Cleaned Area: 60 mt sq, Charging Percentage: 0%
 
 
 ## Test Cases output

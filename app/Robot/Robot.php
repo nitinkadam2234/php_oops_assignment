@@ -47,7 +47,7 @@ class Robot implements Workable {
   
         $this->cleanedArea = $floorObj->clean();
   
-        echo "[Cleaning {$this->floor} floor] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage:". round(abs($this->battery->getChargingPercentage()), 2) ."%" . PHP_EOL;
+        echo "[Cleaning {$this->floor} floor] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage: ". round(abs($this->battery->getChargingPercentage()), 2) ."%" . PHP_EOL;
       } else {
         $this->battery->charge();
       }
