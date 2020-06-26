@@ -50,7 +50,15 @@ class Robot implements Workable {
         echo "[Cleaning {$this->floor} floor] Cleaned Area: {$this->cleanedArea} mt sq, Charging Percentage: ". round(abs($this->battery->getChargingPercentage()), 2) ."%" . PHP_EOL;
       } else {
         $this->battery->charge();
+
+        if($floorObj->getCleanedArea() < $floorObj->getTotalArea()) {
+          echo "[" . ucwords($this->floor) . " floor cleaning started....]" . PHP_EOL;
+        }
       }
+    }
+
+    if($floorObj->getCleanedArea() == $floorObj->getTotalArea()) {
+      echo  "[" . ucwords($this->floor) . " floor cleaning completed!]" . PHP_EOL;
     }
 
     return $this->cleanedArea;

@@ -32,11 +32,17 @@ Assumptions
 ### Hard Floor
 $ php index.php --action=clean --floor=Hard --area=70
 
+[Battery charging started......]
+
 [Battery Charging] 3.33%
 
 .....
 
 [Battery Charging] 100%
+
+[Battery charging completed!]
+
+[Hard floor cleaning started....]
 
 [Cleaning hard floor] Cleaned Area: 1 mt sq, Charging Percentage: 98.33%
 
@@ -44,11 +50,17 @@ $ php index.php --action=clean --floor=Hard --area=70
 
 [Cleaning hard floor] Cleaned Area: 60 mt sq, Charging Percentage: 0%
 
+[Battery charging started......]
+
 [Battery Charging] 3.33%
 
 .....
 
 [Battery Charging] 100%
+
+[Battery charging completed!]
+
+[Hard floor cleaning started....]
 
 [Cleaning hard floor] Cleaned Area: 61 mt sq, Charging Percentage: 98.33%
 
@@ -56,15 +68,22 @@ $ php index.php --action=clean --floor=Hard --area=70
 
 [Cleaning hard floor] Cleaned Area: 70 mt sq, Charging Percentage: 83.33%
 
+[Hard floor cleaning completed!]
 
 ### Carpet Floor
 $ php index.php --action=clean --floor=Carpet --area=60
+
+[Battery charging started......]
 
 [Battery Charging] 3.33%
 
 .....
 
 [Battery Charging] 100%
+
+[Battery charging completed!]
+
+[Carpet floor cleaning started....]
 
 [Cleaning carpet floor] Cleaned Area: 1 mt sq, Charging Percentage: 96.67%
 
@@ -72,11 +91,17 @@ $ php index.php --action=clean --floor=Carpet --area=60
 
 [Cleaning carpet floor] Cleaned Area: 30 mt sq, Charging Percentage: 0%
 
+[Battery charging started......]
+
 [Battery Charging] 3.33%
 
 .....
 
 [Battery Charging] 100%
+
+[Battery charging completed!]
+
+[Carpet floor cleaning started....]
 
 [Cleaning carpet floor] Cleaned Area: 31 mt sq, Charging Percentage: 96.67%
 
@@ -84,6 +109,7 @@ $ php index.php --action=clean --floor=Carpet --area=60
 
 [Cleaning carpet floor] Cleaned Area: 60 mt sq, Charging Percentage: 0%
 
+[Carpet floor cleaning completed!]
 
 ## Test Cases output
 $ ./vendor/bin/phpunit tests

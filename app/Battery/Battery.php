@@ -26,6 +26,9 @@ class Battery implements Chargable {
   }
 
   public function charge() {
+
+    echo "[Battery charging started......]" . PHP_EOL;
+
     $timer = 0;
     while ($timer < Battery::FULL_CHARGE_TIME) {
 
@@ -37,6 +40,8 @@ class Battery implements Chargable {
 
       echo "[Battery Charging] ". round($this->chargingPercentage, 2) . "%" . PHP_EOL ;
     }
+
+    echo "[Battery charging completed!]" . PHP_EOL;
 
     return $this->chargingPercentage;
   }
