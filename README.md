@@ -21,6 +21,7 @@ Assumptions
 ## Dependencies
 - PHP: 7.2
 - PHPUnit 7.5
+- Composer 1.10.7
 
 ## Installation Steps
 - Clone the repository
