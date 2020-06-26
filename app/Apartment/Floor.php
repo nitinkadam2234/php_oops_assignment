@@ -1,5 +1,9 @@
 <?php
 
+namespace RobotApplication\app\Apartment;
+
+use RobotApplication\app\Apartment\Apartment as Apartment;
+
 class Floor implements Apartment {
 
   private $cleanedArea;

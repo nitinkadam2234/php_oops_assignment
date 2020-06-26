@@ -2,6 +2,9 @@
 
 require 'vendor/autoload.php';
 
+use RobotApplication\app\Validator as Validator;
+use RobotApplication\app\Robot\Robot as Robot;
+
 try {
   $longopts  = array('action::', 'floor::', 'area::');
   $args = getopt(null, $longopts);

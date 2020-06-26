@@ -1,6 +1,10 @@
 <?php
 
+namespace RobotApplication\app\Battery;
+namespace RobotApplication\tests;
+
 use PHPUnit\Framework\TestCase;
+use RobotApplication\app\Battery\Battery as Battery;
 
 class BatteryTest extends TestCase {
 

@@ -2,6 +2,10 @@
 
 // Battery is-a Chargable
 
+namespace RobotApplication\app\Battery;
+
+use RobotApplication\app\Battery\Chargable as Chargable;
+
 class Battery implements Chargable {
 
   private $chargingPercentage;

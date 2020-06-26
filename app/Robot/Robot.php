@@ -3,6 +3,12 @@
 // Robot has-a battery
 // Robot can work
 
+namespace RobotApplication\app\Robot;
+
+use RobotApplication\app\Robot\Workable as Workable;
+use RobotApplication\app\Battery\Battery as Battery;
+use RobotApplication\app\Apartment\Floor as Floor;
+
 class Robot implements Workable {
 
   private $floor;

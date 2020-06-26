@@ -1,6 +1,11 @@
 <?php
 
+namespace RobotApplication\app\Robot;
+namespace RobotApplication\tests;
+
 use PHPUnit\Framework\TestCase;
+use RobotApplication\app\Robot\Robot as Robot;
+use RobotApplication\app\Apartment\Floor as Floor;
 
 class RobotTest extends TestCase {
 
